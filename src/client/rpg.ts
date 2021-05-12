@@ -1,18 +1,29 @@
-import { RpgClient, RpgClientEngine } from '@rpgjs/client'
-import { spritesheets, sounds } from '@rpgjs/starter-kit-client'
-import gui from '@rpgjs/default-gui'
-import { SceneMap } from './map'
-import { Sprite } from './sprite'
+import { RpgClient, RpgClientEngine } from '@rpgjs/client';
+import gui from './gui';
+import { SceneMap } from './map';
+import { Sprite } from './sprite';
+import { MedievalTilesets } from './maps/medieval';
+import Characters from './characters';
+import { Images } from './images';
+import { Animations } from './animations';
+import { Sounds } from './sounds';
 
 @RpgClient({
-    spritesheets,
-    sounds,
-    gui,
-    spriteClass: Sprite,
-    scenes: {
-        map: SceneMap
-    }
+  spritesheets: [
+    MedievalTilesets,
+    ...Characters,
+    Images,
+    Animations
+  ],
+  sounds: [
+    Sounds
+  ],
+  gui,
+  spriteClass: Sprite,
+  scenes: {
+    map: SceneMap
+  }
 })
 export default class RPG extends RpgClientEngine {
-    
+  
 }

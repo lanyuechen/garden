@@ -1,5 +1,5 @@
 import { RpgPlayer, Control } from '@rpgjs/server'
-import { database } from '@rpgjs/starter-kit-server'
+import database from './database'
 
 export class Player extends RpgPlayer {
     async onConnected() {
